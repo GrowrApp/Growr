@@ -12,6 +12,7 @@
             --text-muted: #94a3b8;
             --accent: #38bdf8;
             --danger: #ef4444;
+            --success: #22c55e;
             --border: #334155;
             --input-bg: #0f172a;
         }
@@ -24,6 +25,7 @@
                 --text-muted: #64748b;
                 --accent: #0284c7;
                 --danger: #dc2626;
+                --success: #16a34a;
                 --border: #e2e8f0;
                 --input-bg: #f1f5f9;
             }
@@ -86,7 +88,9 @@
             color: var(--text-main);
         }
 
-        input[type="email"], textarea {
+        input[type="email"],
+        input[type="text"],
+        textarea {
             width: 100%;
             padding: 12px;
             border-radius: 8px;
@@ -95,22 +99,89 @@
             color: var(--text-main);
             font-size: 1rem;
             box-sizing: border-box;
+            transition: border-color 0.2s;
         }
 
-        button {
+        input[type="email"]:focus,
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        button[type="submit"] {
             background-color: var(--danger);
             color: #ffffff;
             border: none;
-            padding: 14px 24px;
+            padding: 14px 28px;
             font-size: 1rem;
             font-weight: 600;
             border-radius: 8px;
             cursor: pointer;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, transform 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        button:hover {
+        button[type="submit"]:hover {
             opacity: 0.9;
+        }
+
+        button[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        #success-banner {
+            display: none;
+            background-color: rgba(34, 197, 94, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-top: 20px;
+            color: var(--success);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        #error-banner {
+            display: none;
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--danger);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-top: 16px;
+            color: var(--danger);
+            font-size: 0.95rem;
+        }
+
+        .https-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34, 197, 94, 0.12);
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(34, 197, 94, 0.3);
         }
 
         .nav-links {
@@ -132,7 +203,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Account & Data Deletion Request</h1>
+        <h1>Account &amp; Data Deletion Request</h1>
         <p>In accordance with Google Play Developer Policy, Growr provides users with full control to delete their account and all associated cloud data.</p>
 
         <h2>Method 1: In-App Immediate Deletion (Recommended)</h2>
@@ -147,31 +218,95 @@
         </div>
 
         <h2>Method 2: Web Deletion Request Form</h2>
-        <p>If you have uninstalled the app or lost access to your device, submit a request below using the email address associated with your Growr account:</p>
+        <p>If you have uninstalled the app or lost access to your device, submit a request below. We will process it within 30 days.</p>
 
-        <form action="mailto:growrappli@gmail.com?subject=Growr%20Account%20and%20Data%20Deletion%20Request" method="post" enctype="text/plain">
+        <div class="https-badge">
+            🔒 Secure &amp; Encrypted — Sent over HTTPS
+        </div>
+
+        <!-- REPLACE the action URL below with your Formspree endpoint after signing up at formspree.io -->
+        <form id="deletion-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
             <div class="form-group">
                 <label for="email">Account Email Address *</label>
-                <input type="email" id="email" name="Email Address" placeholder="your-email@example.com" required>
+                <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Your Name (Optional)</label>
+                <input type="text" id="name" name="name" placeholder="John Doe">
             </div>
             <div class="form-group">
                 <label for="notes">Additional Information (Optional)</label>
-                <textarea id="notes" name="Request Details" rows="4" placeholder="Optional details or confirmation..."></textarea>
+                <textarea id="notes" name="message" rows="4" placeholder="Any extra details about your request..."></textarea>
             </div>
-            <button type="submit">Submit Deletion Request</button>
+            <!-- Hidden field to label the request type -->
+            <input type="hidden" name="_subject" value="Growr - Account & Data Deletion Request">
+
+            <button type="submit" id="submit-btn">
+                <span class="spinner" id="spinner"></span>
+                <span id="btn-text">Submit Deletion Request</span>
+            </button>
         </form>
 
+        <div id="success-banner">
+            ✅ Your deletion request has been submitted successfully. We will process it and delete your account and associated data within 30 days.
+        </div>
+        <div id="error-banner">
+            ❌ Something went wrong. Please try again or email us directly at <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>.
+        </div>
+
         <h2>Data Retention Policy</h2>
-        <p>Upon receiving an account deletion request:</p>
+        <p>Upon receiving a deletion request:</p>
         <ul>
             <li>Your account credentials (email, UID, profile data) will be deleted from Firebase Authentication.</li>
-            <li>All associated Cloud Firestore backups (workout history, templates, exercises, body measurements, preferences) will be permanently purged.</li>
-            <li>Deletion requests submitted via web form are processed within 30 days.</li>
+            <li>All associated Cloud Firestore backups (workouts, templates, exercises, body measurements, preferences) will be permanently purged.</li>
+            <li>Requests submitted via this form are processed within <strong>30 days</strong>.</li>
         </ul>
 
         <div class="nav-links">
             <a href="privacy.html">&larr; Back to Privacy Policy</a>
         </div>
     </div>
+
+    <script>
+        const form = document.getElementById('deletion-form');
+        const spinner = document.getElementById('spinner');
+        const btnText = document.getElementById('btn-text');
+        const submitBtn = document.getElementById('submit-btn');
+        const successBanner = document.getElementById('success-banner');
+        const errorBanner = document.getElementById('error-banner');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Show loading state
+            spinner.style.display = 'block';
+            btnText.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            errorBanner.style.display = 'none';
+            successBanner.style.display = 'none';
+
+            const data = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    form.style.display = 'none';
+                    successBanner.style.display = 'block';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                errorBanner.style.display = 'block';
+                spinner.style.display = 'none';
+                btnText.textContent = 'Submit Deletion Request';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
