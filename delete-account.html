@@ -109,6 +109,21 @@
             border-color: var(--accent);
         }
 
+        /* Formspree marks invalid fields with aria-invalid */
+        input[aria-invalid="true"],
+        textarea[aria-invalid="true"] {
+            border-color: var(--danger);
+        }
+
+        /* Field-level error messages from [data-fs-error="fieldname"] */
+        [data-fs-error] {
+            display: block;
+            color: var(--danger);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            min-height: 0;
+        }
+
         button[type="submit"] {
             background-color: var(--danger);
             color: #ffffff;
@@ -118,54 +133,40 @@
             font-weight: 600;
             border-radius: 8px;
             cursor: pointer;
-            transition: opacity 0.2s, transform 0.1s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            transition: opacity 0.2s;
         }
 
-        button[type="submit"]:hover {
-            opacity: 0.9;
-        }
-
+        button[type="submit"]:hover { opacity: 0.9; }
         button[type="submit"]:disabled {
             opacity: 0.6;
             cursor: not-allowed;
         }
 
-        .spinner {
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(255,255,255,0.4);
-            border-top-color: #fff;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
+        /* Form-level success banner from [data-fs-success] */
+        [data-fs-success] {
             display: none;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        #success-banner {
-            display: none;
-            background-color: rgba(34, 197, 94, 0.1);
+            background-color: rgba(34, 197, 94, 0.12);
             border: 1px solid var(--success);
             border-radius: 10px;
             padding: 20px 24px;
-            margin-top: 20px;
+            margin-bottom: 20px;
             color: var(--success);
             font-weight: 600;
             font-size: 1rem;
         }
 
-        #error-banner {
+        /* Form-level error banner from [data-fs-error] (no attribute value = form-level) */
+        [data-fs-error]:not([data-fs-error=""]) {
+            display: block;
+        }
+
+        .form-error-banner {
             display: none;
             background-color: rgba(239, 68, 68, 0.1);
             border: 1px solid var(--danger);
             border-radius: 10px;
             padding: 16px 20px;
-            margin-top: 16px;
+            margin-bottom: 16px;
             color: var(--danger);
             font-size: 0.95rem;
         }
@@ -190,15 +191,8 @@
             border-top: 1px solid var(--border);
         }
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -220,39 +214,42 @@
         <h2>Method 2: Web Deletion Request Form</h2>
         <p>If you have uninstalled the app or lost access to your device, submit a request below. We will process it within 30 days.</p>
 
-        <div class="https-badge">
-            🔒 Secure &amp; Encrypted — Sent over HTTPS
+        <div class="https-badge">🔒 Secure &amp; Encrypted — Sent over HTTPS</div>
+
+        <!-- Formspree success message — shown automatically after submission -->
+        <div data-fs-success>
+            ✅ Your deletion request has been submitted successfully. We will delete your account and associated data within 30 days.
         </div>
 
-        <!-- REPLACE the action URL below with your Formspree endpoint after signing up at formspree.io -->
-        <form id="deletion-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <!-- Formspree form-level error message -->
+        <div data-fs-error class="form-error-banner">
+            ❌ Something went wrong. Please try again or email us at
+            <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>.
+        </div>
+
+        <form id="deletion-form">
             <div class="form-group">
                 <label for="email">Account Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
+                <input type="email" id="email" name="email" placeholder="your-email@example.com" required data-fs-field>
+                <span data-fs-error="email"></span>
             </div>
+
             <div class="form-group">
                 <label for="name">Your Name (Optional)</label>
-                <input type="text" id="name" name="name" placeholder="John Doe">
+                <input type="text" id="name" name="name" placeholder="John Doe" data-fs-field>
             </div>
+
             <div class="form-group">
-                <label for="notes">Additional Information (Optional)</label>
-                <textarea id="notes" name="message" rows="4" placeholder="Any extra details about your request..."></textarea>
+                <label for="message">Additional Information (Optional)</label>
+                <textarea id="message" name="message" rows="4" placeholder="Any extra details about your request..." data-fs-field></textarea>
+                <span data-fs-error="message"></span>
             </div>
-            <!-- Hidden field to label the request type -->
-            <input type="hidden" name="_subject" value="Growr - Account & Data Deletion Request">
 
-            <button type="submit" id="submit-btn">
-                <span class="spinner" id="spinner"></span>
-                <span id="btn-text">Submit Deletion Request</span>
-            </button>
+            <!-- Hidden fields for Formspree config -->
+            <input type="hidden" name="_subject" value="Growr — Account & Data Deletion Request">
+
+            <button type="submit" data-fs-submit-btn>Submit Deletion Request</button>
         </form>
-
-        <div id="success-banner">
-            ✅ Your deletion request has been submitted successfully. We will process it and delete your account and associated data within 30 days.
-        </div>
-        <div id="error-banner">
-            ❌ Something went wrong. Please try again or email us directly at <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>.
-        </div>
 
         <h2>Data Retention Policy</h2>
         <p>Upon receiving a deletion request:</p>
@@ -267,46 +264,13 @@
         </div>
     </div>
 
+    <!-- Formspree Ajax SDK (CDN, no bundler needed) -->
     <script>
-        const form = document.getElementById('deletion-form');
-        const spinner = document.getElementById('spinner');
-        const btnText = document.getElementById('btn-text');
-        const submitBtn = document.getElementById('submit-btn');
-        const successBanner = document.getElementById('success-banner');
-        const errorBanner = document.getElementById('error-banner');
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            // Show loading state
-            spinner.style.display = 'block';
-            btnText.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            errorBanner.style.display = 'none';
-            successBanner.style.display = 'none';
-
-            const data = new FormData(form);
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    form.style.display = 'none';
-                    successBanner.style.display = 'block';
-                } else {
-                    throw new Error('Server error');
-                }
-            } catch (err) {
-                errorBanner.style.display = 'block';
-                spinner.style.display = 'none';
-                btnText.textContent = 'Submit Deletion Request';
-                submitBtn.disabled = false;
-            }
-        });
+        window.formspree = window.formspree || function () {
+            (formspree.q = formspree.q || []).push(arguments);
+        };
+        formspree('initForm', { formElement: '#deletion-form', formId: 'xdaqypon' });
     </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
