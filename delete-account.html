@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account & Data Deletion Request - Growr</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --danger: #ef4444;
+            --border: #334155;
+            --input-bg: #0f172a;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-color: #f8fafc;
+                --card-bg: #ffffff;
+                --text-main: #0f172a;
+                --text-muted: #64748b;
+                --accent: #0284c7;
+                --danger: #dc2626;
+                --border: #e2e8f0;
+                --input-bg: #f1f5f9;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-top: 0;
+            color: var(--accent);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            margin-top: 24px;
+            color: var(--text-main);
+        }
+
+        p, li {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .method-box {
+            background-color: var(--input-bg);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--input-bg);
+            color: var(--text-main);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: var(--danger);
+            color: #ffffff;
+            border: none;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account & Data Deletion Request</h1>
+        <p>In accordance with Google Play Developer Policy, Growr provides users with full control to delete their account and all associated cloud data.</p>
+
+        <h2>Method 1: In-App Immediate Deletion (Recommended)</h2>
+        <div class="method-box">
+            <p style="margin-top: 0;"><strong>If you have the Growr app installed on your device:</strong></p>
+            <ol>
+                <li>Open the <strong>Growr</strong> app.</li>
+                <li>Go to <strong>Settings</strong> (gear icon).</li>
+                <li>Scroll to <strong>Account</strong> and select <strong>Delete Account &amp; Data</strong>.</li>
+                <li>Confirm deletion. Your account, local data, and cloud backups will be erased instantly.</li>
+            </ol>
+        </div>
+
+        <h2>Method 2: Web Deletion Request Form</h2>
+        <p>If you have uninstalled the app or lost access to your device, submit a request below using the email address associated with your Growr account:</p>
+
+        <form action="mailto:support@growrapp.com?subject=Growr%20Account%20and%20Data%20Deletion%20Request" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label for="email">Account Email Address *</label>
+                <input type="email" id="email" name="Email Address" placeholder="your-email@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="notes">Additional Information (Optional)</label>
+                <textarea id="notes" name="Request Details" rows="4" placeholder="Optional details or confirmation..."></textarea>
+            </div>
+            <button type="submit">Submit Deletion Request</button>
+        </form>
+
+        <h2>Data Retention Policy</h2>
+        <p>Upon receiving an account deletion request:</p>
+        <ul>
+            <li>Your account credentials (email, UID, profile data) will be deleted from Firebase Authentication.</li>
+            <li>All associated Cloud Firestore backups (workout history, templates, exercises, body measurements, preferences) will be permanently purged.</li>
+            <li>Deletion requests submitted via web form are processed within 30 days.</li>
+        </ul>
+
+        <div class="nav-links">
+            <a href="privacy.html">&larr; Back to Privacy Policy</a>
+        </div>
+    </div>
+</body>
+</html>

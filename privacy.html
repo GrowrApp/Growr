@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Growr Workout Tracker</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --border: #334155;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-color: #f8fafc;
+                --card-bg: #ffffff;
+                --text-main: #0f172a;
+                --text-muted: #64748b;
+                --accent: #0284c7;
+                --border: #e2e8f0;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            color: var(--accent);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 28px;
+            color: var(--text-main);
+        }
+
+        p, li {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .effective-date {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .nav-links {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 20px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy for Growr</h1>
+        <div class="effective-date">Last Updated: July 27, 2026</div>
+
+        <p>This Privacy Policy applies to the <strong>Growr</strong> mobile application (package name <code>com.growr</code>).</p>
+
+        <h2>1. Data We Collect</h2>
+        <p>Growr is built with a privacy-focused, offline-first architecture. The data collected depends on how you use the app:</p>
+        <ul>
+            <li><strong>Local Workout Data:</strong> Workout sessions, exercise logs, set details (weights, reps, RPE, rest times), workout templates, custom exercises, body measurements, notes, and user preferences are stored directly on your device.</li>
+            <li><strong>Account & Sign-In Data:</strong> If you choose to create an account or sign in, Growr uses Firebase Authentication (Google) to manage your account. This may process your account email address, display name, profile picture URL, and a unique user ID (UID).</li>
+            <li><strong>Cloud Backup Data:</strong> When signed in, Growr backs up your local workout history, templates, body measurements, and user preferences to Firebase Cloud Firestore linked strictly to your account UID.</li>
+        </ul>
+
+        <h2>2. How We Use Your Data</h2>
+        <p>Your data is strictly used to provide, maintain, and synchronize your fitness tracking experience across your devices:</p>
+        <ul>
+            <li>To display your workout logs, progress trends, and strength analytics.</li>
+            <li>To enable secure sign-in and cloud backup/restoration across devices.</li>
+            <li>To enforce app integrity using Google Play Integrity / Firebase App Check.</li>
+        </ul>
+        <p><strong>No Advertising / No Data Sale:</strong> Growr does NOT contain any third-party advertising SDKs and NEVER sells your personal data to third parties.</p>
+
+        <h2>3. Third-Party Service Providers</h2>
+        <p>Growr relies on trusted infrastructure provided by Google Firebase to deliver cloud services:</p>
+        <ul>
+            <li><strong>Firebase Authentication:</strong> Manages account identity and secure sign-in.</li>
+            <li><strong>Cloud Firestore:</strong> Provides secure cloud backup for signed-in accounts.</li>
+            <li><strong>Firebase App Check & Play Integrity:</strong> Protects our backend services against unauthorized access and abuse.</li>
+        </ul>
+
+        <h2>4. Data Security</h2>
+        <p>All data transmitted between Growr and Firebase cloud servers is encrypted in transit using standard HTTPS/TLS protocols. Access to cloud backups is enforced by strict Firestore Security Rules requiring user authentication (ownership verification). Android auto-backup and device transfers are disabled for local application databases to prevent unauthorized extraction.</p>
+
+        <h2>5. Data Rights & Deletion</h2>
+        <p>You retain full control over your data:</p>
+        <ul>
+            <li><strong>In-App Deletion:</strong> You can delete your local data, cloud backup, and account directly inside the app under <em>Settings &gt; Account &gt; Delete Account &amp; Data</em>.</li>
+            <li><strong>Web Deletion Request:</strong> If you no longer have access to the app, you can submit a deletion request via our <a href="delete-account.html">Account & Data Deletion Request Page</a>.</li>
+        </ul>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions or privacy concerns regarding Growr, please contact our support team at:</p>
+        <p><strong>Email:</strong> <a href="mailto:support@growrapp.com">support@growrapp.com</a></p>
+
+        <div class="nav-links">
+            <a href="delete-account.html">Account & Data Deletion Page &rarr;</a>
+        </div>
+    </div>
+</body>
+</html>
