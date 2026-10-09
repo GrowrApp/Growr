@@ -1,276 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account & Data Deletion Request - Growr</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --danger: #ef4444;
-            --success: #22c55e;
-            --border: #334155;
-            --input-bg: #0f172a;
-        }
-
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg-color: #f8fafc;
-                --card-bg: #ffffff;
-                --text-main: #0f172a;
-                --text-muted: #64748b;
-                --accent: #0284c7;
-                --danger: #dc2626;
-                --success: #16a34a;
-                --border: #e2e8f0;
-                --input-bg: #f1f5f9;
-            }
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 20px;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-top: 0;
-            color: var(--accent);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 12px;
-        }
-
-        h2 {
-            font-size: 1.25rem;
-            margin-top: 24px;
-            color: var(--text-main);
-        }
-
-        p, li {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        .method-box {
-            background-color: var(--input-bg);
-            border-left: 4px solid var(--accent);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        input[type="email"],
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background: var(--input-bg);
-            color: var(--text-main);
-            font-size: 1rem;
-            box-sizing: border-box;
-            transition: border-color 0.2s;
-        }
-
-        input[type="email"]:focus,
-        input[type="text"]:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        /* Formspree marks invalid fields with aria-invalid */
-        input[aria-invalid="true"],
-        textarea[aria-invalid="true"] {
-            border-color: var(--danger);
-        }
-
-        /* Field-level error messages from [data-fs-error="fieldname"] */
-        [data-fs-error] {
-            display: block;
-            color: var(--danger);
-            font-size: 0.85rem;
-            margin-top: 5px;
-            min-height: 0;
-        }
-
-        button[type="submit"] {
-            background-color: var(--danger);
-            color: #ffffff;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        button[type="submit"]:hover { opacity: 0.9; }
-        button[type="submit"]:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        /* Form-level success banner from [data-fs-success] */
-        [data-fs-success] {
-            display: none;
-            background-color: rgba(34, 197, 94, 0.12);
-            border: 1px solid var(--success);
-            border-radius: 10px;
-            padding: 20px 24px;
-            margin-bottom: 20px;
-            color: var(--success);
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        /* Form-level error banner from [data-fs-error] (no attribute value = form-level) */
-        [data-fs-error]:not([data-fs-error=""]) {
-            display: block;
-        }
-
-        .form-error-banner {
-            display: none;
-            background-color: rgba(239, 68, 68, 0.1);
-            border: 1px solid var(--danger);
-            border-radius: 10px;
-            padding: 16px 20px;
-            margin-bottom: 16px;
-            color: var(--danger);
-            font-size: 0.95rem;
-        }
-
-        .https-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(34, 197, 94, 0.12);
-            color: var(--success);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-
-        .nav-links {
-            margin-top: 32px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        a { color: var(--accent); text-decoration: none; font-weight: 500; }
-        a:hover { text-decoration: underline; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete account and data - Growr</title>
+<meta name="description" content="How to delete your Growr account and data, in the app or from the web.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Account &amp; Data Deletion Request</h1>
-        <p>In accordance with Google Play Developer Policy, Growr provides users with full control to delete their account and all associated cloud data.</p>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site"><div class="bar">
+<a class="brand" href="index.html">Growr</a>
+<nav aria-label="Main"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
+</div></header>
+<main id="content">
 
-        <h2>Method 1: In-App Immediate Deletion (Recommended)</h2>
-        <div class="method-box">
-            <p style="margin-top: 0;"><strong>If you have the Growr app installed on your device:</strong></p>
-            <ol>
-                <li>Open the <strong>Growr</strong> app.</li>
-                <li>Go to <strong>Settings</strong> (gear icon).</li>
-                <li>Scroll to <strong>Account</strong> and select <strong>Delete Account &amp; Data</strong>.</li>
-                <li>Confirm deletion. Your account, local data, and cloud backups will be erased instantly.</li>
-            </ol>
-        </div>
+<div class="read">
+<h1>Delete your account and data</h1>
+<p>You decide what happens to your data. There are two ways to delete your Growr account.</p>
 
-        <h2>Method 2: Web Deletion Request Form</h2>
-        <p>If you have uninstalled the app or lost access to your device, submit a request below. We will process it within 30 days.</p>
+<h2>Option 1: in the app (instant)</h2>
+<div class="callout">
+<ol>
+<li>Open <strong>Growr</strong> and tap the gear icon for <strong>Settings</strong>.</li>
+<li>Open <strong>Account and sync</strong>.</li>
+<li>Tap <strong>Delete account and all data</strong>, type <code>DELETE</code> and confirm.</li>
+</ol>
+<p>Your cloud data and account are removed and the app is reset on that device. You can export a CSV first from the same dialog. If asked, confirm your password or Google account again.</p>
+</div>
 
-        <div class="https-badge">🔒 Secure &amp; Encrypted — Sent over HTTPS</div>
+<h2>Option 2: request deletion here</h2>
+<p>Use this if you uninstalled the app or lost your phone. Enter the email address of the account you signed in with. If you only ever used the app anonymously, there is no email on file: tell us your phone model and roughly when you installed Growr, though we may not be able to identify an anonymous account without the device. We process requests within <strong>30 days</strong> and email you when done.</p>
 
-        <!-- Formspree success message — shown automatically after submission -->
-        <div data-fs-success>
-            ✅ Your deletion request has been submitted successfully. We will delete your account and associated data within 30 days.
-        </div>
+<div data-fs-success></div>
+<div data-fs-error class="form-error-banner"></div>
 
-        <!-- Formspree form-level error message -->
-        <div data-fs-error class="form-error-banner">
-            ❌ Something went wrong. Please try again or email us at
-            <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>.
-        </div>
+<form id="deletion-form" novalidate>
+<div class="form-group">
+<label for="email">Account email address *</label>
+<input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required data-fs-field>
+<span data-fs-error="email"></span>
+</div>
+<div class="form-group">
+<label for="name">Name (optional)</label>
+<input type="text" id="name" name="name" autocomplete="name" data-fs-field>
+</div>
+<div class="form-group">
+<label for="message">Anything else we should know (optional)</label>
+<textarea id="message" name="message" rows="4" data-fs-field></textarea>
+<span data-fs-error="message"></span>
+</div>
+<div class="hp" aria-hidden="true"><label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+<input type="hidden" name="_subject" value="Growr - Account and data deletion request">
+<button class="btn danger" type="submit" data-fs-submit-btn>Submit deletion request</button>
+</form>
 
-        <form id="deletion-form">
-            <div class="form-group">
-                <label for="email">Account Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="your-email@example.com" required data-fs-field>
-                <span data-fs-error="email"></span>
-            </div>
+<h2>What gets deleted</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Data</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Workouts, templates, programs, custom exercises, settings in the cloud</td><td>Permanently deleted</td></tr>
+<tr><td>Your account (email, sign-in identifier, user ID)</td><td>Permanently deleted</td></tr>
+<tr><td>Data stored on your phone</td><td>Erased by in-app deletion; or uninstall the app</td></tr>
+<tr><td>Usage statistics and crash reports (only if you allowed them)</td><td>Not linked to your name or email; kept by Google under its standard retention, then deleted</td></tr>
+<tr><td>Purchase records</td><td>Kept by Google Play and RevenueCat as required for billing and accounting law</td></tr>
+</tbody></table></div>
+<div class="callout"><p><strong>Subscriptions are not cancelled by deleting your account.</strong> Cancel in Google Play &rarr; Payments &amp; subscriptions &rarr; Subscriptions.</p></div>
+<p>Deletion cannot be undone. Want a copy first? Use <strong>Settings &rarr; Data &rarr; Export CSV</strong> in the app.</p>
+<p>Problems? Email <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>. More on how we handle data: <a href="privacy.html">Privacy Policy</a>.</p>
+</div>
 
-            <div class="form-group">
-                <label for="name">Your Name (Optional)</label>
-                <input type="text" id="name" name="name" placeholder="John Doe" data-fs-field>
-            </div>
-
-            <div class="form-group">
-                <label for="message">Additional Information (Optional)</label>
-                <textarea id="message" name="message" rows="4" placeholder="Any extra details about your request..." data-fs-field></textarea>
-                <span data-fs-error="message"></span>
-            </div>
-
-            <!-- Hidden fields for Formspree config -->
-            <input type="hidden" name="_subject" value="Growr — Account & Data Deletion Request">
-
-            <button type="submit" data-fs-submit-btn>Submit Deletion Request</button>
-        </form>
-
-        <h2>Data Retention Policy</h2>
-        <p>Upon receiving a deletion request:</p>
-        <ul>
-            <li>Your account credentials (email, UID, profile data) will be deleted from Firebase Authentication.</li>
-            <li>All associated Cloud Firestore backups (workouts, templates, exercises, body measurements, preferences) will be permanently purged.</li>
-            <li>Requests submitted via this form are processed within <strong>30 days</strong>.</li>
-        </ul>
-
-        <div class="nav-links">
-            <a href="privacy.html">&larr; Back to Privacy Policy</a>
-        </div>
-    </div>
-
-    <!-- Formspree Ajax SDK (CDN, no bundler needed) -->
-    <script>
-        window.formspree = window.formspree || function () {
-            (formspree.q = formspree.q || []).push(arguments);
-        };
-        formspree('initForm', { formElement: '#deletion-form', formId: 'xdaqypon' });
-    </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</main>
+<footer class="site"><div class="bar">
+<span>&copy; 2026 Growr</span>
+<nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="delete-account.html">Delete account</a></nav>
+</div></footer>
+<script>
+window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+formspree('initForm', { formElement: '#deletion-form', formId: 'xdaqypon' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>

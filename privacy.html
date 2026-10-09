@@ -1,146 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Growr Workout Tracker</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --border: #334155;
-        }
-
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg-color: #f8fafc;
-                --card-bg: #ffffff;
-                --text-main: #0f172a;
-                --text-muted: #64748b;
-                --accent: #0284c7;
-                --border: #e2e8f0;
-            }
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 20px;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-top: 0;
-            color: var(--accent);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 12px;
-        }
-
-        h2 {
-            font-size: 1.3rem;
-            margin-top: 28px;
-            color: var(--text-main);
-        }
-
-        p, li {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        .effective-date {
-            font-style: italic;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-
-        .nav-links {
-            margin-top: 32px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 20px;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy - Growr</title>
+<meta name="description" content="How Growr handles your workout data, account and optional analytics.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy for Growr</h1>
-        <div class="effective-date">Last Updated: July 27, 2026</div>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site"><div class="bar">
+<a class="brand" href="index.html">Growr</a>
+<nav aria-label="Main"><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
+</div></header>
+<main id="content">
 
-        <p>This Privacy Policy applies to the <strong>Growr</strong> mobile application (package name <code>com.growr</code>).</p>
+<div class="read">
+<h1>Privacy Policy</h1>
+<p class="meta">Last updated: October 9, 2026 &middot; Applies to the Growr app for Android (<code>com.growr.app</code>) and this website.</p>
 
-        <h2>1. Data We Collect</h2>
-        <p>Growr is built with a privacy-focused, offline-first architecture. The data collected depends on how you use the app:</p>
-        <ul>
-            <li><strong>Local Workout Data:</strong> Workout sessions, exercise logs, set details (weights, reps, RPE, rest times), workout templates, custom exercises, body measurements, notes, and user preferences are stored directly on your device.</li>
-            <li><strong>Account & Sign-In Data:</strong> If you choose to create an account or sign in, Growr uses Firebase Authentication (Google) to manage your account. This may process your account email address, display name, profile picture URL, and a unique user ID (UID).</li>
-            <li><strong>Cloud Backup Data:</strong> When signed in, Growr backs up your local workout history, templates, body measurements, and user preferences to Firebase Cloud Firestore linked strictly to your account UID.</li>
-        </ul>
+<div class="callout"><p><strong>The short version.</strong> Growr works offline. Your workouts are backed up to your own private cloud space so you can recover them. Usage statistics and crash reports are <strong>off until you choose</strong> to allow them. We do not show ads and we never sell your data.</p></div>
 
-        <h2>2. How We Use Your Data</h2>
-        <p>Your data is strictly used to provide, maintain, and synchronize your fitness tracking experience across your devices:</p>
-        <ul>
-            <li>To display your workout logs, progress trends, and strength analytics.</li>
-            <li>To enable secure sign-in and cloud backup/restoration across devices.</li>
-            <li>To enforce app integrity using Google Play Integrity / Firebase App Check.</li>
-        </ul>
-        <p><strong>No Advertising / No Data Sale:</strong> Growr does NOT contain any third-party advertising SDKs and NEVER sells your personal data to third parties.</p>
+<nav class="toc" aria-label="Contents"><strong>Contents</strong>
+<ol>
+<li><a href="#collect">What we collect</a></li>
+<li><a href="#use">How we use it</a></li>
+<li><a href="#choices">Your privacy choices</a></li>
+<li><a href="#providers">Service providers</a></li>
+<li><a href="#retention">Retention and deletion</a></li>
+<li><a href="#rights">Your rights</a></li>
+<li><a href="#security">Security</a></li>
+<li><a href="#changes">Changes</a></li>
+<li><a href="#contact">Contact</a></li>
+</ol></nav>
 
-        <h2>3. Third-Party Service Providers</h2>
-        <p>Growr relies on trusted infrastructure provided by Google Firebase to deliver cloud services:</p>
-        <ul>
-            <li><strong>Firebase Authentication:</strong> Manages account identity and secure sign-in.</li>
-            <li><strong>Cloud Firestore:</strong> Provides secure cloud backup for signed-in accounts.</li>
-            <li><strong>Firebase App Check & Play Integrity:</strong> Protects our backend services against unauthorized access and abuse.</li>
-        </ul>
+<h2 id="collect">1. What we collect</h2>
+<h3>Workout data you create</h3>
+<p>Workouts, exercises, sets (weight, reps, RPE/RIR, set type, notes), templates, programs, custom exercises and your app settings. This is stored on your device and, when you are online, backed up to the cloud (see below).</p>
+<h3>Account data</h3>
+<p>The first time you open Growr it creates an <strong>anonymous account</strong> with a random user ID, with no name or email. If you choose to sign in with email or Google (a Pro feature, so you can use your data on other devices), we also receive your email address and, for Google, the name and sign-in identifier Google provides.</p>
+<h3>Subscription data</h3>
+<p>If you buy Pro, the purchase is handled by Google Play. Our subscription provider, RevenueCat, receives your random user ID and purchase and entitlement status so the app knows whether Pro is active. We never see your payment card details.</p>
+<h3>Usage statistics (only if you allow them)</h3>
+<p>Anonymous counts of a few milestones: finishing onboarding, finishing a first workout, returning after 7 days, viewing the Pro screen and purchasing. These events contain no workout content. Google Analytics for Firebase may also receive standard device information such as app version, device model and operating system.</p>
+<h3>Crash reports (only if you allow them)</h3>
+<p>When the app crashes, Firebase Crashlytics receives technical details such as the error, app version, device model and Android version, so the problem can be fixed.</p>
+<h3>Technical data needed to run the service</h3>
+<p>Firebase generates an installation identifier and checks that requests come from a genuine copy of the app (Firebase App Check with Google Play Integrity). The app also fetches settings such as free-plan limits from Firebase Remote Config. This happens regardless of your analytics choice because the app cannot work safely without it.</p>
+<h3>Messages you send us</h3>
+<p>If you email us feedback or a bug report from the app, your email app opens with the app version and device model filled in. We receive whatever you choose to send.</p>
 
-        <h2>4. Data Security</h2>
-        <p>All data transmitted between Growr and Firebase cloud servers is encrypted in transit using standard HTTPS/TLS protocols. Access to cloud backups is enforced by strict Firestore Security Rules requiring user authentication (ownership verification). Android auto-backup and device transfers are disabled for local application databases to prevent unauthorized extraction.</p>
+<h2 id="use">2. How we use it</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Purpose</th><th>Data</th><th>Basis (GDPR)</th></tr></thead>
+<tbody>
+<tr><td>Show your logs, charts and records; back up and sync your data</td><td>Workout data, account ID, email if you sign in</td><td>Providing the service you asked for</td></tr>
+<tr><td>Know whether Pro is active</td><td>User ID, purchase status</td><td>Contract</td></tr>
+<tr><td>Protect the service from abuse</td><td>Installation ID, App Check token</td><td>Legitimate interest</td></tr>
+<tr><td>Understand how the app is used</td><td>Anonymous milestone events</td><td>Your consent</td></tr>
+<tr><td>Find and fix crashes</td><td>Crash reports</td><td>Your consent</td></tr>
+<tr><td>Answer your messages</td><td>What you email us</td><td>Legitimate interest</td></tr>
+</tbody></table></div>
+<p><strong>No advertising, no data sales.</strong> Growr contains no advertising SDKs, and we do not sell or rent your personal data.</p>
 
-        <h2>5. Data Rights & Deletion</h2>
-        <p>You retain full control over your data:</p>
-        <ul>
-            <li><strong>In-App Deletion:</strong> You can delete your local data, cloud backup, and account directly inside the app under <em>Settings &gt; Account &gt; Delete Account &amp; Data</em>.</li>
-            <li><strong>Web Deletion Request:</strong> If you no longer have access to the app, you can submit a deletion request via our <a href="delete-account.html">Account & Data Deletion Request Page</a>.</li>
-        </ul>
+<h2 id="choices">3. Your privacy choices</h2>
+<p>On first launch Growr asks whether to allow usage statistics and crash reports. Both are off until you decide. You can change either choice at any time in <strong>Settings &rarr; Privacy and legal</strong>. Turning a switch off stops further collection. Data already collected is kept by Google in aggregated or limited form according to their retention settings.</p>
 
-        <h2>6. Contact Us</h2>
-        <p>If you have any questions or privacy concerns regarding Growr, please contact our support team at:</p>
-        <p><strong>Email:</strong> <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a></p>
+<h2 id="providers">4. Service providers</h2>
+<ul>
+<li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, App Check, Remote Config, Analytics and Crashlytics when allowed). Google acts as our processor.</li>
+<li><strong>Google Play</strong> for app distribution and billing.</li>
+<li><strong>RevenueCat</strong> for subscription status.</li>
+</ul>
+<p>These providers may process data outside the EU/EEA. Where they do, they rely on safeguards such as the EU Standard Contractual Clauses or an adequacy decision.</p>
 
-        <div class="nav-links">
-            <a href="delete-account.html">Account & Data Deletion Page &rarr;</a>
-        </div>
-    </div>
+<h2 id="retention">5. Retention and deletion</h2>
+<ul>
+<li>Workout data is kept as long as your account exists. If a Pro subscription ends, <strong>your data is kept and stays readable</strong>; only creating beyond the free limits and new sign-ins are restricted.</li>
+<li><strong>Delete in the app:</strong> Settings &rarr; Account and sync &rarr; Delete account and all data. This permanently removes your cloud data and your account, and erases the data on that device.</li>
+<li><strong>Delete from the web</strong> if you no longer have the app: use the <a href="delete-account.html">deletion request page</a>. We handle requests within 30 days.</li>
+<li>Deleting your account does not cancel a Google Play subscription. Cancel it in Google Play.</li>
+</ul>
+
+<h2 id="rights">6. Your rights</h2>
+<p>Under the GDPR you can ask to access, correct, delete or export your data, object to processing, and withdraw consent at any time. Export is built in: <strong>Settings &rarr; Data &rarr; Export CSV</strong>, always free. For anything else, email <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>. You can also complain to your national data protection authority, for example <a href="https://www.datatilsynet.dk">Datatilsynet</a> in Denmark.</p>
+
+<h2 id="security">7. Security</h2>
+<p>Data travels between the app and Firebase over HTTPS/TLS. Cloud data is protected by access rules so that only the signed-in owner can read or change their own data. No system is perfectly secure, so we cannot guarantee absolute security.</p>
+
+<h2 id="changes">8. Changes</h2>
+<p>If we change this policy in a meaningful way we will update the date above and, where appropriate, tell you in the app.</p>
+
+<h2 id="contact">9. Contact</h2>
+<p>Questions or requests: <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>.</p>
+</div>
+
+</main>
+<footer class="site"><div class="bar">
+<span>&copy; 2026 Growr</span>
+<nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="delete-account.html">Delete account</a></nav>
+</div></footer>
 </body>
 </html>
