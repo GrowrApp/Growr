@@ -7,12 +7,14 @@
 <meta name="description" content="Help, FAQ and contact details for Growr.">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Geist-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/Geist-SemiBold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
 <header class="site"><div class="bar">
-<a class="brand" href="index.html">Growr</a>
+<a class="brand" href="index.html" aria-label="Growr home"><svg viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="116" fill="#111111"/><path d="M333.1 164.1 A 120 120 0 1 0 374.2 276.8" fill="none" stroke="#F5F5F5" stroke-width="34" stroke-linecap="round"/><circle cx="368.8" cy="215" r="26" fill="#FF8A4C"/></svg>Growr</a>
 <nav aria-label="Main"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html" aria-current="page">Support</a></nav>
 </div></header>
 <main id="content">
@@ -20,18 +22,19 @@
 <div class="read">
 <h1>Support</h1>
 <p class="lead">Questions, bugs or ideas? We read every message.</p>
-<div class="list"><a href="mailto:growrappli@gmail.com?subject=Growr%20support"><span>Email us<small>growrappli@gmail.com</small></span><span class="chev">&rsaquo;</span></a></div>
+<div class="list"><a class="row" href="mailto:growrappli@gmail.com?subject=Growr%20support"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#F5F5F5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span class="text">Email us<small>growrappli@gmail.com</small></span><span class="chev" aria-hidden="true">&rsaquo;</span></a></div>
 <p>For a bug report, the fastest way is <strong>Settings &rarr; Support and feedback &rarr; Report a bug</strong> in the app. It fills in your app version and device model for you.</p>
 
+<section class="group">
 <h2>Frequently asked questions</h2>
-
+<div class="card faq">
 <details><summary>Do I need an account?</summary><p>No. Growr creates an anonymous account on first launch so your data can be backed up. Signing in with email or Google (Pro) lets you use your data on other devices and recover it after a reinstall.</p></details>
 
 <details><summary>Does Growr work offline?</summary><p>Yes. Everything works without a connection and syncs when you are back online. Kill the app mid-workout and your draft is still there.</p></details>
 
-<details><summary>How do I export my data?</summary><p>Settings &rarr; Data &rarr; Export CSV. It is always free. You can also create a full backup file and restore it later.</p></details>
+<details><summary>How do I export my data?</summary><p>Settings &rarr; Data and backup &rarr; Export workouts (CSV). It is always free. You can also create a full backup file and restore it later.</p></details>
 
-<details><summary>Can I import my history from Strong?</summary><p>Yes: Settings &rarr; Data &rarr; Import Strong CSV. Exercise names that cannot be matched automatically appear on a review screen so you can pick the right exercise. Importing the same file again will not create duplicates.</p></details>
+<details><summary>Can I import my history from Strong?</summary><p>Yes: Settings &rarr; Data and backup &rarr; Import from Strong. Exercise names that cannot be matched automatically appear on a review screen so you can pick the right exercise. Importing the same file again will not create duplicates.</p></details>
 
 <details><summary>The rest timer did not alert me with the screen off.</summary><p>Make sure notifications are allowed for Growr and that exact alarms and battery optimisation are not blocking it (Android Settings &rarr; Apps &rarr; Growr). If it still fails, send a bug report with your phone model.</p></details>
 
@@ -43,10 +46,13 @@
 
 <details><summary>What do you collect about me?</summary><p>See the <a href="privacy.html">Privacy Policy</a>. Usage statistics and crash reports are off unless you allow them.</p></details>
 </div>
+</section>
+
+</div>
 
 </main>
 <footer class="site"><div class="bar">
-<span>&copy; 2026 Growr</span>
+<span>&copy; 2026 Growr &middot; No ads, ever.</span>
 <nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="delete-account.html">Delete account</a></nav>
 </div></footer>
 </body>

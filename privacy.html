@@ -7,12 +7,14 @@
 <meta name="description" content="How Growr handles your workout data, account and optional analytics.">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Geist-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/Geist-SemiBold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
 <header class="site"><div class="bar">
-<a class="brand" href="index.html">Growr</a>
+<a class="brand" href="index.html" aria-label="Growr home"><svg viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="116" fill="#111111"/><path d="M333.1 164.1 A 120 120 0 1 0 374.2 276.8" fill="none" stroke="#F5F5F5" stroke-width="34" stroke-linecap="round"/><circle cx="368.8" cy="215" r="26" fill="#FF8A4C"/></svg>Growr</a>
 <nav aria-label="Main"><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
 </div></header>
 <main id="content">
@@ -36,7 +38,9 @@
 <li><a href="#contact">Contact</a></li>
 </ol></nav>
 
+<section class="group">
 <h2 id="collect">1. What we collect</h2>
+<div class="card">
 <h3>Workout data you create</h3>
 <p>Workouts, exercises, sets (weight, reps, RPE/RIR, set type, notes), templates, programs, custom exercises and your app settings. This is stored on your device and, when you are online, backed up to the cloud (see below).</p>
 <h3>Account data</h3>
@@ -51,8 +55,12 @@
 <p>Firebase generates an installation identifier and checks that requests come from a genuine copy of the app (Firebase App Check with Google Play Integrity). The app also fetches settings such as free-plan limits from Firebase Remote Config. This happens regardless of your analytics choice because the app cannot work safely without it.</p>
 <h3>Messages you send us</h3>
 <p>If you email us feedback or a bug report from the app, your email app opens with the app version and device model filled in. We receive whatever you choose to send.</p>
+</div>
+</section>
 
+<section class="group">
 <h2 id="use">2. How we use it</h2>
+<div class="card">
 <div class="table-wrap"><table>
 <thead><tr><th>Purpose</th><th>Data</th><th>Basis (GDPR)</th></tr></thead>
 <tbody>
@@ -64,42 +72,77 @@
 <tr><td>Answer your messages</td><td>What you email us</td><td>Legitimate interest</td></tr>
 </tbody></table></div>
 <p><strong>No advertising, no data sales.</strong> Growr contains no advertising SDKs, and we do not sell or rent your personal data.</p>
+</div>
+</section>
 
+<section class="group">
 <h2 id="choices">3. Your privacy choices</h2>
+<div class="card">
 <p>On first launch Growr asks whether to allow usage statistics and crash reports. Both are off until you decide. You can change either choice at any time in <strong>Settings &rarr; Privacy and legal</strong>. Turning a switch off stops further collection and deletes what is still waiting on your device (usage data and its app instance ID, or unsent crash reports). Data already collected is kept by Google in aggregated or limited form according to their retention settings.</p>
+</div>
+</section>
 
+<section class="group">
 <h2 id="providers">4. Service providers</h2>
+<div class="card">
 <ul>
 <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, App Check, Remote Config, Analytics and Crashlytics when allowed). Google acts as our processor.</li>
 <li><strong>Google Play</strong> for app distribution and billing.</li>
 <li><strong>RevenueCat</strong> for subscription status.</li>
+<li><strong>GitHub Pages</strong> hosts this website. Like any web host it receives your IP address when you visit.</li>
+<li><strong>Formspree</strong> receives the deletion requests sent with the form on the deletion page (the email address and anything you write).</li>
 </ul>
 <p>These providers may process data outside the EU/EEA. Where they do, they rely on safeguards such as the EU Standard Contractual Clauses or an adequacy decision.</p>
+</div>
+</section>
 
+<section class="group">
 <h2 id="retention">5. Retention and deletion</h2>
+<div class="card">
 <ul>
 <li>Workout data is kept as long as your account exists. If a Pro subscription ends, <strong>your data is kept and stays readable</strong>; only creating beyond the free limits and new sign-ins are restricted.</li>
 <li><strong>Delete in the app:</strong> Settings &rarr; Account and sync &rarr; Delete account and all data. This permanently removes your cloud data and your account, and erases the data on that device.</li>
 <li><strong>Delete from the web</strong> if you no longer have the app: use the <a href="delete-account.html">deletion request page</a>. We handle requests within 30 days.</li>
 <li>Deleting your account does not cancel a Google Play subscription. Cancel it in Google Play.</li>
+<li><strong>Purchase records</strong> (your random user ID and purchase status) are kept by Google Play and RevenueCat as required for billing and accounting law, also after your account is deleted. They are no longer linked to your email or workout data. If you want the RevenueCat record removed as well, email us and we delete it by hand.</li>
 </ul>
+</div>
+</section>
 
+<section class="group">
 <h2 id="rights">6. Your rights</h2>
-<p>Under the GDPR you can ask to access, correct, delete or export your data, object to processing, and withdraw consent at any time. Export is built in: <strong>Settings &rarr; Data &rarr; Export CSV</strong>, always free. For anything else, email <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>. You can also complain to your national data protection authority, for example <a href="https://www.datatilsynet.dk">Datatilsynet</a> in Denmark.</p>
+<div class="card">
+<p>Under the GDPR you can ask to access, correct, delete or export your data, object to processing, and withdraw consent at any time. Export is built in: <strong>Settings &rarr; Data and backup &rarr; Export workouts (CSV)</strong>, always free. For anything else, email <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>. You can also complain to your national data protection authority, for example <a href="https://www.datatilsynet.dk">Datatilsynet</a> in Denmark.</p>
+</div>
+</section>
 
+<section class="group">
 <h2 id="security">7. Security</h2>
+<div class="card">
 <p>Data travels between the app and Firebase over HTTPS/TLS. Cloud data is protected by access rules so that only the signed-in owner can read or change their own data. No system is perfectly secure, so we cannot guarantee absolute security.</p>
+</div>
+</section>
 
+<section class="group">
 <h2 id="changes">8. Changes</h2>
+<div class="card">
 <p>If we change this policy in a meaningful way we will update the date above and, where appropriate, tell you in the app.</p>
+</div>
+</section>
 
+<section class="group">
 <h2 id="contact">9. Contact</h2>
+<div class="card">
+<p>Growr is made by Mathias Larsen, who is responsible for your data under the GDPR (the data controller).</p>
 <p>Questions or requests: <a href="mailto:growrappli@gmail.com">growrappli@gmail.com</a>.</p>
+</div>
+</section>
+
 </div>
 
 </main>
 <footer class="site"><div class="bar">
-<span>&copy; 2026 Growr</span>
+<span>&copy; 2026 Growr &middot; No ads, ever.</span>
 <nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="delete-account.html">Delete account</a></nav>
 </div></footer>
 </body>
