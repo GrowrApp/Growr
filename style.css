@@ -200,11 +200,20 @@ textarea { resize: vertical; }
 ::placeholder { color: var(--dim); }
 input:focus, textarea:focus { border-color: var(--accent); outline: none; }
 input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--danger); }
-[data-fs-error] { display: block; color: var(--danger); font-size: 13px; margin-top: 4px; }
-[data-fs-success] { display: none; background: var(--field); border: 1px solid rgba(255, 138, 76, 0.4); color: var(--text); border-radius: var(--r-button); padding: 14px 18px; margin: 16px 0 0; font-weight: 500; }
-[data-fs-success]:not(:empty) { display: block; }
-.form-error-banner { display: none; border: 1px solid var(--danger-border); color: var(--danger); border-radius: var(--r-button); padding: 14px 18px; margin: 16px 0 0; }
-.form-error-banner:not(:empty) { display: block; }
+/* Formspree's script injects its own light banner styles; the `body` prefix
+   outranks them so the messages keep the app's colors. */
+body [data-fs-error] { display: none; color: var(--danger); font-size: 13px; margin-top: 4px; }
+body [data-fs-error][data-fs-active] { display: block; color: var(--danger); }
+body [data-fs-success] { display: none; }
+body [data-fs-success][data-fs-active] {
+  display: block; background: var(--field); border: 1px solid rgba(255, 138, 76, 0.4); color: var(--text);
+  border-radius: var(--r-button); padding: 14px 18px; margin: 16px 0 0; font-size: 15px; font-weight: 500;
+}
+body .form-error-banner[data-fs-active] {
+  display: block; background: var(--field); border: 1px solid var(--danger-border); color: var(--danger);
+  border-radius: var(--r-button); padding: 14px 18px; margin: 16px 0 0; font-size: 15px;
+}
+body [data-fs-field][aria-invalid="true"] { border-color: var(--danger); }
 .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
 
 /* ---- home ----------------------------------------------------------------- */
